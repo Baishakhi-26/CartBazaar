@@ -1,11 +1,13 @@
 package com.example.cartbazaar.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.example.cartbazaar.activity.ProductDetailsActivity
 import com.example.cartbazaar.databinding.ItemCategoryProductLayoutBinding
 import com.example.cartbazaar.model.AddProductModel
 
@@ -27,5 +29,11 @@ class CategoryProductAdapter(val context : Context, val list : ArrayList<AddProd
         Glide.with(context).load(list[position].productCoverImg).into(holder.binding.productCoverImg)
         holder.binding.productName.text = list[position].productName
         holder.binding.productSp.text = list[position].productSp
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ProductDetailsActivity::class.java)
+            intent.putExtra("id", list[position].productId)
+            context.startActivity(intent)
+        }
     }
 }
