@@ -24,7 +24,9 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_margin="8dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/textViewProduct1"
@@ -83,7 +85,7 @@
             android:layout_marginHorizontal="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/buttonProductA"/>
+            app:layout_constraintTop_toBottomOf="@id/imageViewProduct"/>
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
                 android:layout_width="wrap_content"
