@@ -46,7 +46,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                     slideList.add(SlideModel(data, ScaleTypes.CENTER_CROP))
                 }
 
-                cartAction(proId,name,productSp,it.getString("productCoverImage"))
+                cartAction(proId,name,productSp,it.getString("productCoverImg"))
 
                 binding.imageSlider.setImageList(slideList)
 
@@ -55,21 +55,18 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
     }
 
-    private fun cartAction(proId: String, name: String?, productSp: String?, coverImage: String?) {
-
-        val productDao =AppDatabase.getInstance(this).productDao()
-
-        if (productDao.isExit(proId) != null){
+    private fun cartAction(proId: String, name: String?, productSp: String?, coverImg: String?) {
+        val productDao = AppDatabase.getInstance(this).productDao()
+        if (productDao.isExit(proId) != null) {
             binding.addToCartBtn.text = "Go to Cart"
-        }else{
+        } else {
             binding.addToCartBtn.text = "Add to Cart"
         }
-
-        binding.addToCartBtn.setOnClickListener{
-            if (productDao.isExit(proId) != null){
+        binding.addToCartBtn.setOnClickListener {
+            if (productDao.isExit(proId) != null) {
                 openCart()
-            }else{
-                addToCart(productDao, proId, name, productSp, coverImage)
+            } else {
+                addToCart(productDao, proId, name, productSp, coverImg)
             }
         }
     }
