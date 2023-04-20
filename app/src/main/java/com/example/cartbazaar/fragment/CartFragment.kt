@@ -50,8 +50,8 @@ class CartFragment : Fragment() {
             total += item.productSp!!.toInt()
         }
 
-        binding.textViewCartFragment1.text = "Total item in cart is Rs(data.size)"
-        binding.textViewCartFragment2.text = "Total cost : Rstotal"
+        binding.textViewCartFragment1.text = "Total item in cart is ${data.size}"
+        binding.textViewCartFragment2.text = "Total cost : $total"
 
         binding.checkout.setOnClickListener{
             val intent = Intent(context, AdressActivity::class.java)
