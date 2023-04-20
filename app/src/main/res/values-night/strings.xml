@@ -3,4 +3,10 @@
     <string name="shop_by_category">Shop by category</string>
     <string name="see_all">See all</string>
     <string name="shop_by_products">Shop by products</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="otp">OTP</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="name">Name</string>
+    <string name="signup">SignUp</string>
+    <string name="signin">SignIn</string>
 </resources>
