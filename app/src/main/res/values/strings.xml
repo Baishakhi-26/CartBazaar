@@ -11,4 +11,10 @@
     <string name="name">Name</string>
     <string name="signup">SignUp</string>
     <string name="signin">SignIn</string>
+    <string name="proceed_to_checkout">Proceed To Checkout</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="village">Village</string>
+    <string name="user_name">User Name</string>
 </resources>

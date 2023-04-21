@@ -17,7 +17,6 @@ import com.example.cartbazaar.roomdb.ProductModel
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +35,6 @@ class CartFragment : Fragment() {
 
         dao.getAllProducts().observe(requireActivity()) {
             binding.cartRecyclerView.adapter = CartAdapter(requireContext(), it)
-
             totalCost(it)
         }
 
@@ -55,7 +53,7 @@ class CartFragment : Fragment() {
 
         binding.checkout.setOnClickListener{
             val intent = Intent(context, AdressActivity::class.java)
-            intent.putExtra("totalCost",total)
+            intent.putExtra("totalCost",total.toString())
             startActivity(intent)
         }
     }
