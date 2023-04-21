@@ -16,6 +16,7 @@ import com.example.cartbazaar.roomdb.ProductModel
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
+    private lateinit var list : ArrayList<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +34,16 @@ class CartFragment : Fragment() {
 
         val dao = AppDatabase.getInstance(requireContext()).productDao()
 
+        list = ArrayList()
+
         dao.getAllProducts().observe(requireActivity()) {
             binding.cartRecyclerView.adapter = CartAdapter(requireContext(), it)
+
+            list.clear()
+            for (data in it) {
+                list.add(data.productId)
+            }
+
             totalCost(it)
         }
 
@@ -53,7 +62,10 @@ class CartFragment : Fragment() {
 
         binding.checkout.setOnClickListener{
             val intent = Intent(context, AdressActivity::class.java)
-            intent.putExtra("totalCost",total.toString())
+            val bundle = Bundle()
+            bundle.putStringArrayList("productIds", list)
+            bundle.putString("totalCost", total.toString())
+            intent.putExtras(bundle)
             startActivity(intent)
         }
     }
