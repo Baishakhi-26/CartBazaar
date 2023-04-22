@@ -88,6 +88,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0-Beta")
 
+    implementation 'com.razorpay:checkout:1.6.26'
+
 
 
 }

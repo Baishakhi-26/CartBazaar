@@ -56,10 +56,9 @@ class AdressActivity : AppCompatActivity() {
             .document(preferences.getString("number", "")!!)
             .update(map).addOnSuccessListener {
                 val bundle = Bundle()
-                bundle.putStringArrayList("productIds", intent.getStringArrayListExtra("productIds"))
+                bundle.putStringArrayList("productIds",intent.getStringArrayListExtra("productIds"))
                 bundle.putString("totalCost", totalCost)
-
-                val intent = Intent(this, CheckoutActivity::class.java)
+                val intent  = Intent(this,CheckoutActivity::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
 
