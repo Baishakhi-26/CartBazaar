@@ -73,7 +73,7 @@ class CheckoutActivity : AppCompatActivity(), PaymentResultListener {
                 }
 
                 saveData(it.getString("productName"),
-                    it.getString("productName"),
+                    it.getString("productSp"),
                 productId)
             }
 
@@ -93,7 +93,7 @@ class CheckoutActivity : AppCompatActivity(), PaymentResultListener {
         val key = firestore.document().id
         data["orderId"] = key
 
-        firestore.add(data).addOnSuccessListener {
+        firestore.document(key).set(data).addOnSuccessListener {
             Toast.makeText(this, "Order Placed", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
