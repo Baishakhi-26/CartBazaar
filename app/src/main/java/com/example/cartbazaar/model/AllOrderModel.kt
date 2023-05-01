@@ -7,4 +7,5 @@ data class AllOrderModel(
     val price: String? = "",
     val productId: String? = "",
     val status: String? = "",
+    val image: String? = ""
 )

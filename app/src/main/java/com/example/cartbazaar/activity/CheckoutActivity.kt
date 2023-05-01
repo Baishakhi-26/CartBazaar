@@ -74,17 +74,19 @@ class CheckoutActivity : AppCompatActivity(), PaymentResultListener {
 
                 saveData(it.getString("productName"),
                     it.getString("productSp"),
+                    it.getString("productCoverImg"),
                 productId)
             }
 
     }
 
-    private fun saveData(name: String?, price: String?, productId: String) {
+    private fun saveData(name: String?, price: String?, image : String?, productId: String) {
         val preference = this.getSharedPreferences("user", MODE_PRIVATE)
 
         val data = hashMapOf<String, Any>()
         data["name"] = name!!
         data["price"] = price!!
+        data["image"] = image!!
         data["productId"] = productId
         data["status"] = "Ordered"
         data["userId"] = preference.getString("number", "")!!

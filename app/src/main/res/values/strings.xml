@@ -17,4 +17,6 @@
     <string name="city">City</string>
     <string name="village">Village</string>
     <string name="user_name">User Name</string>
+    <string name="log_out">Log Out</string>
+    <string name="product_name">Product Name</string>
 </resources>

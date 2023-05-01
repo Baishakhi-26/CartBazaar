@@ -6,6 +6,7 @@ import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.cartbazaar.databinding.AllOrdersItemLayoutBinding
 import com.example.cartbazaar.model.AllOrderModel
 
@@ -27,6 +28,7 @@ class AllOrderAdapter(val list: ArrayList<AllOrderModel>, val context: Context)
     override fun onBindViewHolder(holder: AllOrderViewHolder, position: Int) {
         holder.binding.productTitle.text = list[position].name
         holder.binding.productPrice.text = list[position].price
+        Glide.with(context).load(list[position].image).into(holder.binding.productImg)
 
 
         when (list[position].status) {
