@@ -14,6 +14,43 @@
       },
       "oauth_client": [
         {
+          "client_id": "309266813561-14cllbqtdrmvipn341nm31b0marliq61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cartbazaar",
+            "certificate_hash": "eecb9b8a31743d3c4b203c33aaa4d0b95514c4b8"
+          }
+        },
+        {
+          "client_id": "309266813561-te60dbf4nnqbrclcrm5vqmmcap44emjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM0wRtbxCZqseTms86UJsw6Wm1EVh3TDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309266813561-te60dbf4nnqbrclcrm5vqmmcap44emjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309266813561:android:d3b53628075622fb9d3aa8",
+        "android_client_info": {
+          "package_name": "com.example.cartbazaar_admin"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "309266813561-te60dbf4nnqbrclcrm5vqmmcap44emjq.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -7,7 +7,7 @@
     tools:context=".activity.OTPActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/sendOtpImageView"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="24dp"
@@ -26,7 +26,7 @@
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+        app:layout_constraintTop_toBottomOf="@+id/sendOtpImageView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userOTPInput"
@@ -47,4 +47,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <TextView
+        android:id="@+id/resendOTPText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sendOtpImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/resend_otp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
