@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cartbazaar.activity.AdressActivity
 import com.example.cartbazaar.adapter.CartAdapter
@@ -61,12 +62,16 @@ class CartFragment : Fragment() {
         binding.textViewCartFragment2.text = "Total cost : $total"
 
         binding.checkout.setOnClickListener{
-            val intent = Intent(context, AdressActivity::class.java)
-            val bundle = Bundle()
-            bundle.putStringArrayList("productIds", list)
-            bundle.putString("totalCost", total.toString())
-            intent.putExtras(bundle)
-            startActivity(intent)
+            if (list.size == 0) {
+                Toast.makeText(requireContext(), "Add Some Items", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(context, AdressActivity::class.java)
+                val bundle = Bundle()
+                bundle.putStringArrayList("productIds", list)
+                bundle.putString("totalCost", total.toString())
+                intent.putExtras(bundle)
+                startActivity(intent)
+            }
         }
     }
 

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.cartbazaar.MainActivity
 import com.example.cartbazaar.R
 import com.example.cartbazaar.databinding.ActivityLoginBinding
+import com.example.cartbazaar.model.UserModel
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuthMissingActivityForRecaptchaException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
 class LoginActivity : AppCompatActivity() {
@@ -40,7 +43,24 @@ class LoginActivity : AppCompatActivity() {
         binding.signInBtn.setOnClickListener {
             if (binding.userNumberInput.text!!.isNotEmpty()) {
                 if (binding.userNumberInput.text!!.length == 10) {
-                    sendOtp(binding.userNumberInput.text.toString())
+                    val list = ArrayList<UserModel>()
+                    val numbers = ArrayList<String>()
+                    Firebase.firestore.collection("users")
+                        .get().addOnSuccessListener {
+                            list.clear()
+                            for (doc in it) {
+                                val data = doc.toObject(UserModel::class.java)
+                                list.add(data)
+                            }
+                            for (i in list) {
+                                numbers.add(i.userPhoneNumber!!)
+                            }
+                            if (numbers.contains(binding.userNumberInput.text.toString())) {
+                                sendOtp(binding.userNumberInput.text.toString())
+                            } else {
+                                Toast.makeText(this, "Enter a registered number.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                 } else {
                     Toast.makeText(this, "Please Enter Correct Number", Toast.LENGTH_SHORT).show()
                 }

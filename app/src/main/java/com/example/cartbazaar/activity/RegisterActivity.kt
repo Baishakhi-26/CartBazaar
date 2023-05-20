@@ -24,7 +24,24 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.signUpButton.setOnClickListener {
-            validateUser()
+            val list = ArrayList<UserModel>()
+            val numbers = ArrayList<String>()
+            Firebase.firestore.collection("users")
+                .get().addOnSuccessListener {
+                    list.clear()
+                    for (doc in it) {
+                        val data = doc.toObject(UserModel::class.java)
+                        list.add(data)
+                    }
+                    for (i in list) {
+                        numbers.add(i.userPhoneNumber!!)
+                    }
+                    if (!numbers.contains(binding.userNumberInput.text.toString())) {
+                        validateUser()
+                    } else {
+                        Toast.makeText(this, "This number is already registered.\n Go to sign in.", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 
