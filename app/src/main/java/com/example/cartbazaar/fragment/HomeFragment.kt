@@ -18,7 +18,6 @@ import com.example.cartbazaar.model.CategoryModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-//
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -75,9 +74,6 @@ class HomeFragment : Fragment() {
                 binding.productRecyclerView.adapter = ProductAdapter(requireContext(), list)
 
             }
-
-
-
 
     }
 }

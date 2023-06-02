@@ -14,7 +14,6 @@ import com.example.cartbazaar.databinding.FragmentCartBinding
 import com.example.cartbazaar.roomdb.AppDatabase
 import com.example.cartbazaar.roomdb.ProductModel
 
-
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
     private lateinit var list : ArrayList<String>

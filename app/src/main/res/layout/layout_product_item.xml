@@ -81,7 +81,7 @@
             android:layout_width="0dp"
             android:layout_marginTop="8dp"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="@string/add"
             android:layout_marginHorizontal="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"

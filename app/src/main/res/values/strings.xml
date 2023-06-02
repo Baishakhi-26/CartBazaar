@@ -20,4 +20,5 @@
     <string name="log_out">Log Out</string>
     <string name="product_name">Product Name</string>
     <string name="resend_otp">Resend OTP</string>
+    <string name="add">Add</string>
 </resources>
